@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -11,12 +11,6 @@ contract NFTCollection is ERC721, ERC721URIStorage, Ownable {
 
     Counters.Counter private _tokenIdCounter;
 
-    event CollectionCreated(
-        address indexed _contractAddress,
-        string _name,
-        string _symbol
-    );
-
     event TokenMinted(
         address indexed _contractAddress,
         address _recipient,
@@ -27,9 +21,7 @@ contract NFTCollection is ERC721, ERC721URIStorage, Ownable {
     constructor(
         string memory _name,
         string memory _symbol
-    ) ERC721(_name, _symbol) {
-        emit CollectionCreated(address(this), _name, _symbol);
-    }
+    ) ERC721(_name, _symbol) {}
 
     function mint(address to, string memory _tokenUri) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
