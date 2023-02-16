@@ -1,0 +1,13 @@
+@mixin faraway-button {
+  background: linear-gradient(
+      to right,
+      rgb(77, 50, 229) 50%,
+      rgb(234, 58, 89) 50%
+    )
+    right bottom / 200% 100%;
+  box-shadow: rgb(233 233 233) 6px 6px 0px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+}
