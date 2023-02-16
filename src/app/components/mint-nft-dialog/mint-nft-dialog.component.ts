@@ -4,7 +4,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 import * as web3 from 'web3';
 
 export const isAddress = (control: any): ValidationErrors | null => {
-  return { invalidAddress: !web3.default.utils.isAddress(control.value) };
+  return !web3.default.utils.isAddress(control.value)
+    ? { invalidAddress: true }
+    : null;
 };
 
 @Component({
@@ -34,7 +36,8 @@ export class MintNftDialog {
     return this.to.invalid || this.image.invalid;
   }
 
-  getToErrorMessage() {
+  public getToErrorMessage(): string | undefined {
+    console.log(this.to, 'this to');
     if (!this.to.touched) {
       return;
     }
@@ -48,7 +51,7 @@ export class MintNftDialog {
       : '';
   }
 
-  getImageErrorMessage() {
+  public getImageErrorMessage(): string | undefined {
     if (!this.image.touched) {
       return;
     }
