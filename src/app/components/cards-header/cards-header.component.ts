@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Output,
@@ -31,7 +32,11 @@ export class CardsHeaderComponent {
   @Output()
   private readonly nftMinted: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(public dialog: MatDialog, private ethService: EthService) {
+  constructor(
+    public dialog: MatDialog,
+    private ethService: EthService,
+    private cdr: ChangeDetectorRef
+  ) {
     this.ethService.updateNameAndSymbol();
   }
 
@@ -50,6 +55,7 @@ export class CardsHeaderComponent {
           JSON.stringify(data.tokenUri)
         );
         this.transactionLoader = true;
+        this.cdr.markForCheck();
         await mint.wait();
         this.nftMinted.emit(1);
       } catch (e) {

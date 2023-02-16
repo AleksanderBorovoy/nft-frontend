@@ -37,7 +37,6 @@ export class MintNftDialog {
   }
 
   public getToErrorMessage(): string | undefined {
-    console.log(this.to, 'this to');
     if (!this.to.touched) {
       return;
     }
