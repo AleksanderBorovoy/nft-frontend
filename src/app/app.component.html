@@ -1,0 +1,46 @@
+<app-top-bar></app-top-bar>
+
+<div class="carousel-wrapper">
+  <app-carousel></app-carousel>
+</div>
+
+<div class="content">
+  <ng-container
+    *ngIf="
+      !(walletAddress$$ | async)?.address || !(contractAddress$$ | async);
+      else appContent
+    "
+  >
+    <app-welcome></app-welcome>
+    <app-faraway-button
+      *ngIf="walletAddressExists"
+      (click)="openDeployContractDialog()"
+      [disabled]="contractDeploing$$ | async"
+      [showSpinner]="contractDeploing$$ | async"
+      text="Deploy contract"
+      [ngStyle]="{
+        'pointer-events': (contractDeploing$$ | async) ? 'none' : 'all'
+      }"
+      class="deploy-button"
+    ></app-faraway-button>
+  </ng-container>
+
+  <ng-template #appContent>
+    <app-cards-header (nftMinted)="onScrollDown($event)"></app-cards-header>
+
+    <div
+      class="search-results"
+      infinite-scroll
+      [infiniteScrollDistance]="scrollDistance"
+      [infiniteScrollUpDistance]="scrollUpDistance"
+      [infiniteScrollThrottle]="throttle"
+      (scrolled)="onScrollDown()"
+    >
+      <app-cards-list></app-cards-list>
+    </div>
+  </ng-template>
+</div>
+
+<div class="mt-32">
+  <app-footer></app-footer>
+</div>

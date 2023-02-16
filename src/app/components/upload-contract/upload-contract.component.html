@@ -1,0 +1,39 @@
+<div class="text-center">
+  <h1 mat-dialog-title class="nft-dialog-title">Deploy this contract?</h1>
+</div>
+<pre class="hljs code-area" [innerHTML]="code$ | async"></pre>
+<div class="w-full">
+  <mat-form-field appearance="outline" class="deploy-input">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" [formControl]="name" />
+  </mat-form-field>
+</div>
+
+<div class="w-full">
+  <mat-form-field appearance="outline" class="deploy-input">
+    <mat-label>Symbol</mat-label>
+    <input matInput placeholder="Symbol" [formControl]="symbol" />
+  </mat-form-field>
+</div>
+
+<div class="w-full mt-24 text-center">
+  <app-faraway-button
+    (click)="deploy()"
+    [disabled]="(contractDeploing$$ | async) || formInvalid"
+    [showSpinner]="contractDeploing$$ | async"
+    text="Deploy contract"
+    [ngStyle]="{
+      'pointer-events':
+        (contractDeploing$$ | async) || formInvalid ? 'none' : 'all'
+    }"
+  ></app-faraway-button>
+  <button
+    mat-button
+    mat-dialog-close
+    class="cancel"
+    color="primary"
+    [disabled]="contractDeploing$$ | async"
+  >
+    Cancel
+  </button>
+</div>

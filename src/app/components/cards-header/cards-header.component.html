@@ -1,0 +1,22 @@
+<div class="d-flex justify-between align-center">
+  <div class="text-header">{{ name$$ | async }}: {{ symbol$$ | async }}</div>
+  <div class="d-flex align-center">
+    <div class="connect-wrapper" (click)="openDialog()">
+      <div class="connect">
+        <p>MINT NFT</p>
+      </div>
+    </div>
+    <div class="spinner d-flex align-center" *ngIf="transactionLoader">
+      <mat-spinner diameter="40"></mat-spinner>
+      <div class="queue ml-16">Transaction in Queue</div>
+    </div>
+  </div>
+</div>
+<mat-progress-bar
+  class="mt-16 progress-bar"
+  *ngIf="transactionLoader"
+  mode="indeterminate"
+></mat-progress-bar>
+<div class="contract-addr">
+  Contract adress: <span class="address">{{ contractAddress$$ | async }}</span>
+</div>

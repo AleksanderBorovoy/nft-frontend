@@ -1,0 +1,49 @@
+@import "../../../assets/mixins";
+.nft-dialog-title {
+  text-transform: uppercase;
+  height: 70px;
+  font-family: "League Spartan", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0 18px;
+}
+
+.mint {
+  @include faraway-button;
+  align-items: center;
+  appearance: none;
+  border-radius: 10px;
+  border: 0px;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: 0.02857em;
+  line-height: 24px;
+  min-width: 64px;
+  outline: 0px;
+  padding: 23px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-position 0.2s ease 0s;
+  user-select: none;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.mint:hover {
+  box-shadow: rgb(233 233 233) 6px 6px 0px;
+  background-position: left bottom;
+  background-color: rgb(163, 40, 62);
+}
+
+.cancel {
+  min-width: 100px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.mint-input {
+  width: 100%;
+}

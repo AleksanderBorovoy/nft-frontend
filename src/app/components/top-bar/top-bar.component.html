@@ -1,0 +1,18 @@
+<div class="toolbar align-center">
+  <div class="logo d-flex align-center">NFT COLLECTION</div>
+
+  <ng-container *ngIf="walletAddress$$ | async as wallet">
+    <div
+      class="connect-wrapper"
+      *ngIf="wallet.address == null; else connected"
+      (click)="connectWallet()"
+    >
+      <div class="connect">
+        <p>Connect Wallet</p>
+      </div>
+    </div>
+    <ng-template #connected>
+      <div class="connected">{{ wallet.address ?? "" | shortedAddress }}</div>
+    </ng-template>
+  </ng-container>
+</div>

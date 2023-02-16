@@ -1,0 +1,13 @@
+<owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide *ngFor="let slide of slides">
+    <div class="slide">
+      <div class="slide-image-container">
+        <img class="slide-image" [src]="slide.src" [alt]="slide.alt" />
+        <div class="slide-text">
+          {{ slide.textFirstLine }} <br />
+          {{ slide.textSecondLine }}
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</owl-carousel-o>

@@ -1,0 +1,33 @@
+:host {
+  background-color: black;
+  display: block;
+}
+
+.content {
+  margin: 0 15%;
+  padding: 60px 0 40px 0;
+}
+
+.footer-logo {
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "League Spartan", sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.3);
+  padding-bottom: 25px;
+}
+
+.mail-link {
+  display: block;
+  color: hsla(0, 0%, 100%, 0.502);
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 458px) {
+  .footer-logo {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,38 @@
+<div class="text-center">
+  <h1 mat-dialog-title class="nft-dialog-title">MINT NFT</h1>
+</div>
+
+<div class="w-full">
+  <mat-form-field appearance="outline" class="mint-input">
+    <mat-label>Address</mat-label>
+    <input matInput placeholder="account address" [formControl]="to" />
+    <mat-error *ngIf="to.invalid">{{ getToErrorMessage() }}</mat-error>
+  </mat-form-field>
+</div>
+
+<div class="w-full">
+  <mat-form-field appearance="outline" class="mint-input">
+    <mat-label>Image link</mat-label>
+    <input matInput placeholder="imege link" [formControl]="image" />
+    <mat-error *ngIf="image.invalid">{{ getImageErrorMessage() }}</mat-error>
+  </mat-form-field>
+</div>
+
+<div class="text-center mt-16">
+  <button
+    class="mint"
+    mat-button
+    mat-dialog-close
+    cdkFocusInitial
+    [disabled]="submitDisabled"
+    (click)="mint()"
+    [ngStyle]="{
+      'pointer-events': submitDisabled ? 'none' : 'all'
+    }"
+  >
+    Mint nft
+  </button>
+  <button mat-button mat-dialog-close class="cancel" color="primary">
+    Cancel
+  </button>
+</div>

@@ -1,0 +1,72 @@
+@import "../../../assets/mixins";
+
+.toolbar {
+  min-height: 70px;
+  height: 70px;
+  padding: 0 !important;
+  justify-content: space-between;
+  background-color: #000;
+  position: fixed;
+  z-index: 1200;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%),
+    0 1px 10px 0 rgb(0 0 0 / 12%);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  width: 100%;
+  display: flex;
+}
+
+.logo {
+  text-transform: uppercase;
+  color: #fff;
+  height: 70px;
+  line-height: 70px;
+  font-family: "League Spartan", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0 18px;
+}
+
+.connect-wrapper {
+  height: 70px;
+  line-height: 70px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.connect {
+  @include faraway-button;
+  margin-left: 10px;
+  margin-right: -10px;
+  padding: 0 32px;
+  transform: skew(346deg);
+  transition: 0.25s ease-out;
+  p {
+    transform: skew(13deg);
+    font-family: "League Spartan", sans-serif;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.connect:hover {
+  background-position: 0;
+  color: #fff;
+}
+
+.connected {
+  color: #fff;
+  margin-right: 16px;
+}
+
+@media only screen and (max-width: 458px) {
+  .logo {
+    font-size: 18px;
+    line-height: 18px;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="cards-container d-flex mt-32">
+  <ng-container *ngIf="(cards$$ | async)?.length; else noNft">
+    <div class="card" *ngFor="let nft of cards$$ | async">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>#{{ nft.id }}</mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          [src]="nft.image"
+          alt="Photo of a Shiba Inu"
+          (error)="errorHandler($event)"
+        />
+        <mat-card-content>
+          <div class="d-flex justify-between">
+            <b>Owner: </b>
+            <p>{{ nft.owner | shortedAddress }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+
+  <ng-template #noNft>
+    <div class="no-nft w-full d-flex align-center justify-center">
+      COLLECTION HAS NO NFT
+    </div>
+  </ng-template>
+</div>

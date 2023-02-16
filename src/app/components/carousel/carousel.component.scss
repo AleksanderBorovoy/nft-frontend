@@ -1,0 +1,43 @@
+.slide-text {
+  font-family: "League Spartan", sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+  color: #fff;
+  bottom: 48px;
+  left: 48px;
+  position: absolute;
+  line-height: 45px;
+}
+
+.slide-image-container {
+  position: relative;
+}
+
+.slide-image {
+  height: 880px;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 1360px) {
+  .slide-image {
+    height: 680px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .slide-image {
+    height: 580px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .slide-image {
+    height: 480px;
+  }
+}
+
+@media only screen and (max-width: 458px) {
+  .slide-image {
+    height: 380px;
+  }
+}
